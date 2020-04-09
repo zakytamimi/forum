@@ -1,0 +1,29 @@
+
+    <% if @threads.errors.any? %>
+    <div class="alert alert-warning alert-dismissible fade show" >
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+            <div>
+                <% @threads.errors.full_messages.each do |error| %>
+                    <span><%= error %><br></span>
+                <% end %>
+            </div>
+    </div>
+    <% end %>
+    
+    <%= form_for @threads do |f| %>
+        <div class='form-group'>
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control' %>
+        </div>
+
+        <div class='form-group'>
+            <%= f.label :content%>
+            <%= f.text_area :content, rows: 5, class: 'form-control' %>
+        </div>
+
+        <div class='form-group'>
+            <%= f.submit "Buat Thread", class: 'btn btn-primary form-control' %>
+        </div>
+    <%end%>

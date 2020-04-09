@@ -1,0 +1,30 @@
+.row {
+    margin-top: 30px;
+}
+
+.meta {
+    margin-bottom: 10px;
+}
+
+.content {
+    margin-bottom: 10px;
+}
+
+.count {
+    float: right;
+}
+
+.thread {
+    margin-top: 30px;
+    margin-bottom: 35px;
+    border-bottom: 1px solid #000000;
+    
+}
+
+.action {
+    float: right;
+}
+
+.edit {
+    float: right;
+}

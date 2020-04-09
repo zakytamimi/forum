@@ -1,0 +1,32 @@
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%# <a class="navbar-brand" href="#">Forum</a> %>
+      <%= link_to 'Forum', root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <%= form_tag root_path, method: :get, class: "navbar-nav mr-auto" do %>
+          <form class="form-inline my-2 my-lg-0">            
+            <%= text_field_tag :search, nil, class: "form-control mr-sm-2" %>
+            <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+          </form>
+        <% end %>
+      </div>
+
+      
+
+      <li class="nav-item dropdown form-inline " style="margin-right: 30px">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= user_signed_in? ? current_user.name : 'hallo guess' %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if user_signed_in? %>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" <%= link_to "Logout", destroy_user_session_path, method: :delete %></a>
+          <% else %>
+            <a class="dropdown-item" <%= link_to "Daftar", new_user_registration_path %></a>
+            <a class="dropdown-item" <%= link_to "Login", new_user_session_path %></a>
+          <% end %>
+        </div>
+      </li>
+    </nav>
